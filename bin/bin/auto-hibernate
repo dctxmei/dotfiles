@@ -1,0 +1,14 @@
+#!/bin/bash
+
+step='12'
+acpi_status="$(acpi | awk -F '[,:%]' '{print $2}')"
+acpi_capacity="$(acpi | awk -F '[,:%]' '{print $3}')"
+
+while : ; do
+    sleep "$step"
+    if [[ "$acpi_status" == 'Discharging' ]]; then
+        if [[ "$acpi_capacity" -le '5' ]]; then
+            systemctl hibernate
+        fi
+    fi
+done
