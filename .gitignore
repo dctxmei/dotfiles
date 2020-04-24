@@ -1,6 +1,10 @@
+bin/bin/*
+!bin/bin/auto-hibernate
 fcitx5/.config/fcitx5/conf/*
 !fcitx5/.config/fcitx5/conf/classicui.conf
 fcitx5/.local/share/fcitx5/rime/build/
 fcitx5/.local/share/fcitx5/rime/luna_pinyin.userdb/
 mpd/.config/mpd/*
 !mpd/.config/mpd/mpd.conf
+systemd/.config/systemd/user/*
+!systemd/.config/systemd/user/auto-hibernate.service
