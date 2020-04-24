@@ -1,3 +1,6 @@
 [submodule "bash/.bash_it"]
 	path = bash/.bash_it
 	url = https://github.com/Bash-it/bash-it.git
+[submodule "spacemacs/.emacs.d"]
+	path = spacemacs/.emacs.d
+	url = https://github.com/syl20bnr/spacemacs.git
