@@ -2,6 +2,10 @@ bin/bin/*
 !bin/bin/auto-hibernate
 fcitx5/.config/fcitx5/conf/*
 !fcitx5/.config/fcitx5/conf/classicui.conf
+fcitx5/.local/share/fcitx5/rime/*
+!fcitx5/.local/share/fcitx5/rime/default.custom.yaml
+!fcitx5/.local/share/fcitx5/rime/double_pinyin.custom.yaml
+!fcitx5/.local/share/fcitx5/rime/double_pinyin_simp.schema.yaml
 fcitx5/.local/share/fcitx5/rime/build/
 fcitx5/.local/share/fcitx5/rime/luna_pinyin.userdb/
 mpd/.config/mpd/*
