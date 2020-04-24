@@ -1,0 +1,264 @@
+############################################
+######################
+# dctxmei - Oh My i3 wm #
+######################
+############################################
+
+# ********* 基本按键设定 ********* #
+set $mod Mod4
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# 启动终端
+bindsym $mod+Return exec --no-startup-id termite
+
+# 关闭焦点窗口
+bindsym $mod+Shift+q kill
+
+# 改变焦点
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# 移动焦点窗口
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# 水平方向分割
+bindsym $mod+i split h
+
+# 垂直方向分割
+bindsym $mod+v split v
+
+# 焦点窗口全屏
+bindsym $mod+f fullscreen toggle
+
+# 更改窗口布局（堆叠，标签，切换分割）
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# 切换平铺/浮动
+bindsym $mod+Shift+space floating toggle
+
+# 更改平铺/浮动窗口之间的焦点
+bindsym $mod+space focus mode_toggle
+
+# 焦点切换到父窗口
+bindsym $mod+a focus parent
+
+# 焦点切换到子窗口
+bindsym $mod+q focus child
+
+# 转换为暂存窗口
+bindsym $mod+Shift+minus move scratchpad
+
+# 呼出/隐藏暂存窗口
+bindsym $mod+minus scratchpad show
+
+# 切换工作区
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS10
+
+# 移动焦点窗口到工作区
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS10
+
+# 重新加载配置文件
+bindsym $mod+Shift+c reload
+# 重启 i3 到合适的位置（保留你的布局/会话，可以用来升级 i3）
+bindsym $mod+Shift+r restart
+
+# 调整窗口大小（你也可以使用鼠标）
+mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+
+    # Pressing left will shrink the window’s width.
+    # Pressing down will grow the window’s height.
+    # Pressing up will shrink the window’s height.
+    # Pressing right will grow the window’s width.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# ********* 特殊按键设定 ********* #
+# Polybar
+exec_always ~/.config/polybar/launch.sh
+# 随机壁纸
+exec_always betterlockscreen -u ~/Images/Background/71648498_p0.jpg && betterlockscreen -w
+
+# 关闭屏幕保护
+exec xset s 0
+exec xset dpms 0 0 0
+# 调整色温
+exec redshift -l 31.23:121.47 -t 4100:2800
+# 启动音效
+exec bash -c 'pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 44%'
+exec play ~/Music/onj001.mp3
+# 特技
+exec --no-startup-id conky -c ~/.config/conky/conky_x11.conf
+# 终端“透明+特技”/透明
+#exec --no-startup-id xcompmgr -c -C -r2 -o.5 -l-2 -t-9 -I-2 -O-2 -D2 -f -F
+exec --no-startup-id xcompmgr
+# Fcitx
+#exec fcitx
+# Fcitx5
+exec --no-startup-id fcitx5
+
+# 游戏辅助工具
+#bindsym $mod+Shift+t exec --no-startup-id /usr/bin/game-chat-helper
+# 手动随机壁纸
+#bindsym $mod+Shift+b exec --no-startup-id feh -z --bg-fill ~/Images/Background
+# 切换声卡
+bindsym $mod+Shift+f exec --no-startup-id pacmd set-default-sink $(pacmd list-sinks | grep '  index' | cut -d ' ' -f6) && sink
+# 低频
+bindsym $mod+Shift+d exec --no-startup-id doas cpupower frequency-set -d 800MHz && doas cpupower frequency-set -u 800MHz
+# 高频
+bindsym $mod+Shift+u exec --no-startup-id doas cpupower frequency-set -u 1900MHz && doas cpupower frequency-set -d 1900MHz
+# Mpd
+bindsym $mod+Shift+p exec mpc play
+bindsym $mod+Shift+s exec mpc stop
+bindsym $mod+Shift+n exec mpc next
+# 静音/解静音
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+# 减少音量
+bindsym XF86AudioLowerVolume exec --no-startup-id bash -c 'pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ -2%'
+# 增加音量
+bindsym XF86AudioRaiseVolume exec --no-startup-id bash -c 'pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ +2%'
+# 减少亮度
+bindsym XF86MonBrightnessDown exec --no-startup-id doas bash -c 'echo "$(expr $(cat /sys/class/backlight/intel_backlight/brightness) - 104)" > /sys/class/backlight/intel_backlight/brightness'
+# 增加亮度
+bindsym XF86MonBrightnessUp exec --no-startup-id doas bash -c 'echo "$(expr $(cat /sys/class/backlight/intel_backlight/brightness) + 104)" > /sys/class/backlight/intel_backlight/brightness'
+# 抓取屏幕
+bindsym Print exec --no-startup-id scrot -q 100 ~/Images/%Y.%m.%d_%H:%M:%S.png
+# 抓取窗口
+bindsym --release Shift+Print exec --no-startup-id flameshot gui -p ~/Images
+
+# 程序启动器
+#bindsym $mod+d exec dmenu_run -b -fn "Noto Sans Mono-16" -sb "#000000"
+bindsym $mod+d exec rofi -show
+
+set $mode_system System (e) , (l) , (s) , (h) , (r) , (Shift+s) 
+mode "$mode_system" {
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym l exec --no-startup-id betterlockscreen -l dimblur -t "「自由，爱，希望」", mode "default"
+    bindsym s exec --no-startup-id systemctl suspend && betterlockscreen -l dimblur -t "「自由，爱，希望」", mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate && betterlockscreen -l dimblur -t "「自由，爱，希望」", mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
+
+# ********* 主题 ********* #
+set $WS1 1:1
+set $WS2 2:2
+set $WS3 3:3
+set $WS4 4:4
+set $WS5 5:5
+set $WS6 6:6
+set $WS7 7:7
+set $WS8 8:8
+set $WS9 9:9
+set $WS10 10:0
+
+# 窗口无状态栏无边框
+for_window [class="^.*"] border pixel 5
+#for_window [class="Vncviewer"] floating enable border normal
+
+# 字体
+font pango:Noto Sans Mono 12
+
+# 边框    背景    文字    提示
+# 窗口焦点
+client.focused          #00000099 #11AAAA99 #FFFFFF99 #11AAAA99
+# 窗口焦点不活跃
+client.focused_inactive #55555500 #55555500 #FFFFFF00 #55555500
+# 窗口无焦点
+client.unfocused        #55555500 #55555500 #FFFFFF00 #55555500
+# 窗口包含紧急提示
+client.urgent           #99999999 #99999999 #FFFFFF99 #99999999
+client.placeholder      #55555599 #55555599 #FFFFFF99 #55555599
+client.background       #22222299
+
+#assign [class="qemu"] $WS2
+assign [class="VirtualBox"] $WS4
+assign [class="mpv"] $WS5
+assign [class="Vlc"] $WS5
+assign [class="Chromium"] $WS6
+assign [class="firefox"] $WS7
+assign [class="Thunderbird"] $WS8
+assign [class="TelegramDesktop"] $WS9
+assign [class="KeePassXC"] $WS10
+
+# ********* i3-gaps ********* #
+gaps inner 12
+gaps outer 8
+
+#set $mode_gaps Gaps: (i) inner, (o) outer
+#set $mode_gaps_inner Inner Gaps: + | - | 0 (local), Shift "+" + | - | 0 (global)
+#set $mode_gaps_outer Outer Gaps: + | - | 0 (local), Shift "+" + | - | 0 (global)
+
+#mode "$mode_gaps" {
+    #bindsym i      mode "$mode_gaps_inner"
+    #bindsym o      mode "$mode_gaps_outer"
+    #bindsym Return mode "default"
+    #bindsym Escape mode "default"
+#}
+#bindsym $mod+Shift+g mode "$mode_gaps"
+
+#mode "$mode_gaps_inner" {
+    #bindsym plus  gaps inner current plus 5
+    #bindsym minus gaps inner current minus 5
+    #bindsym 0     gaps inner current set 0
+
+    #bindsym Shift+plus  gaps inner all plus 5
+    #bindsym Shift+minus gaps inner all minus 5
+    #bindsym Shift+0     gaps inner all set 0
+
+    #bindsym Return mode "default"
+    #bindsym Escape mode "default"
+#}
+
+#mode "$mode_gaps_outer" {
+    #bindsym plus  gaps outer current plus 5
+    #bindsym minus gaps outer current minus 5
+    #bindsym 0     gaps outer current set 0
+
+    #bindsym Shift+plus  gaps outer all plus 5
+    #bindsym Shift+minus gaps outer all minus 5
+    #bindsym Shift+0     gaps outer all set 0
+
+    #bindsym Return mode "default"
+    #bindsym Escape mode "default"
+#}
