@@ -1,0 +1,8 @@
+[user]
+	email = dctxmei@gmail.com
+	name = Dct Mei
+	signingkey = 50BF8B712DCAD7EA
+[commit]
+	gpgsign = true
+[http]
+	proxy = socks://127.0.0.1:1080
