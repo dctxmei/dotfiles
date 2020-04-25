@@ -119,10 +119,8 @@ exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-
 exec --no-startup-id play ~/Music/onj001.mp3
 # Conky
 exec --no-startup-id conky
-# 終端透明 + 特技／透明
-#exec --no-startup-id xcompmgr -c -C -r2 -o.5 -l-2 -t-9 -I-2 -O-2 -D2 -f -F
 # 透明
-exec --no-startup-id xcompmgr
+exec --no-startup-id compton -c
 # Fcitx5
 exec --no-startup-id fcitx5
 
@@ -184,8 +182,8 @@ set $WS8 8:8
 set $WS9 9:9
 set $WS10 10:0
 
-# 窗口無狀態欄無邊框
-for_window [class="^.*"] border pixel 5
+# 窗口無狀態欄微邊框
+for_window [class="^.*"] border pixel 1
 
 # 字體
 font pango:monospace 12
@@ -211,5 +209,8 @@ assign [class="TelegramDesktop"] $WS9
 assign [class="KeePassXC"] $WS10
 
 # i3-gaps
-gaps inner 12
-gaps outer 8
+gaps inner 50
+#gaps outer 0
+
+# Activate smart borders (always)
+smart_borders on
