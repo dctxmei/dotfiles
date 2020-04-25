@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for sink in "$(pactl list short sink-inputs | cut -d '	' -f1)"; do
+    pactl move-sink-input "$sink" "$(pacmd list-sinks | grep '*' | cut -d ' ' -f5)"
+done

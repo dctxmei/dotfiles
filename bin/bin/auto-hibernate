@@ -9,6 +9,9 @@ while : ; do
     if [[ "$acpi_status" == 'Discharging' ]]; then
         if [[ "$acpi_capacity" -le '5' ]]; then
             systemctl hibernate
+            if [[ "$?" -eq '0' ]]; then
+                betterlockscreen -l dimblur -t "「自由，愛，希望」"
+            fi
         fi
     fi
 done
