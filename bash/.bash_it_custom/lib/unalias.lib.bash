@@ -1,0 +1,2 @@
+unalias snano
+unalias svim
