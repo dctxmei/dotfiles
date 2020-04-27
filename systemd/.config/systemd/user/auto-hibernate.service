@@ -2,8 +2,7 @@
 Description=Auto Hibernate Service
 
 [Service]
-Type=simple
 ExecStart=/bin/bash %h/bin/auto-hibernate
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
