@@ -6,6 +6,5 @@ fcitx5/.local/share/fcitx5/rime/*
 !fcitx5/.local/share/fcitx5/rime/double_pinyin_simp.schema.yaml
 fcitx5/.local/share/fcitx5/rime/build/
 fcitx5/.local/share/fcitx5/rime/luna_pinyin.userdb/
-mpd/.config/mpd/*
-!mpd/.config/mpd/mpd.conf
+mpd/.cache/
 systemd/.config/systemd/user/default.target.wants/
