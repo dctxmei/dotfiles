@@ -1,0 +1,39 @@
+[Hotkey]
+# 替代切換輸入法
+AltTriggerKeys=
+# 枚舉輸入法向前
+EnumerateForwardKeys=
+# 枚舉輸入法向後
+EnumerateBackwardKeys=
+# 枚舉輸入法群組向前
+EnumerateGroupForwardKeys=
+# 枚舉輸入法群組向後
+EnumerateGroupBackwardKeys=
+# 啟用輸入法
+ActivateKeys=
+# 停用輸入法
+DeactivateKeys=
+# 預設上一頁
+PrevPage=
+# 預設下一頁
+NextPage=
+
+[Hotkey/TriggerKeys]
+0=Super+space
+
+[Behavior]
+# 預設啟用
+ActiveByDefault=False
+# Share Input State
+ShareInputState=All
+# 當切換輸入法時顯示輸入法資訊
+ShowInputMethodInformation=True
+# Show Input Method Information when changing focus
+showInputMethodInformationWhenFocusIn=False
+# 預設頁面大小
+DefaultPageSize=5
+# Force Enabled Addons
+EnabledAddons=
+# Force Disabled Addons
+DisabledAddons=
+
