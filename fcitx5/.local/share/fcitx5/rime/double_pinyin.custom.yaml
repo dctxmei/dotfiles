@@ -7,17 +7,8 @@ patch:
       states: [ 半角, 全角 ]
     - name: ascii_punct
       states: [ 。，, ．， ]
-    - name: s2t
+    - name: zh_tw
       reset: 1
-    - name: t2tw
-      reset: 1
-  "engine/filters":
-    - simplifier@s2t
-    - simplifier@t2tw
-    - uniquifier
-  s2t:
-    option_name: s2t
-    opencc_config: s2t.json
-  t2tw:
-    option_name: t2tw
+  simplifier:
     opencc_config: t2tw.json
+    option_name: zh_tw
