@@ -116,11 +116,11 @@ exec --no-startup-id xset dpms 0 0 0
 exec --no-startup-id redshift -l 31.23:121.47 -t 4100:2800
 # 啟動音效
 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 44%
-exec --no-startup-id play ~/Music/onj001.mp3
+#exec --no-startup-id play ~/Music/onj001.mp3
 # Conky
 exec --no-startup-id conky
 # 透明
-exec --no-startup-id compton -c
+exec --no-startup-id picom -c
 # Fcitx5
 exec --no-startup-id fcitx5
 
