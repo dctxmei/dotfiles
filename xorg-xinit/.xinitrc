@@ -47,6 +47,7 @@ LOCALE() {
     export LANG=zh_TW.UTF-8
 }
 QT5() {
+    # qt5ct and qt5-styleplugins
     export QT_QPA_PLATFORMTHEME="qt5ct"
 }
 FCITX() {
@@ -55,7 +56,7 @@ FCITX() {
     export XMODIFIERS=@im=fcitx
 }
 I3() {
-    ~/bin/display
+    #~/bin/display
     exec i3
 }
 
