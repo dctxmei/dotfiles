@@ -4,5 +4,6 @@ patch:
   menu:
     page_size: 9
   schema_list:
+    - schema: cangjie5
     - schema: double_pinyin
     - schema: double_pinyin_simp
