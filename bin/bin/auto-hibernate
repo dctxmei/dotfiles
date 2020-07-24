@@ -7,10 +7,7 @@ while : ; do
     sleep "$STEP"
     if [[ "$ACPI_STATUS" == 'Discharging' ]]; then
         if [[ "$ACPI_CAPACITY" -le '5' ]]; then
-            systemctl hibernate
-            if [[ "$?" -eq '0' ]]; then
-                betterlockscreen -l dimblur -t "「自由，愛，希望」"
-            fi
+            systemctl hibernate && betterlockscreen -l dimblur -t "「自由，愛，希望」"
         fi
     fi
 done

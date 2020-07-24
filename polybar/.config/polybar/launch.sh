@@ -9,9 +9,11 @@ while pgrep -x polybar > /dev/null; do sleep 1; done
 # Launch dctxmei
 DISPLAY1="$(xrandr | grep 'HDMI' | cut -d ' ' -f1)"
 DISPLAY2="$(xrandr | grep 'eDP' | cut -d ' ' -f1)"
+DISPLAY3="$(xrandr | grep 'VGA' | cut -d ' ' -f1)"
 for display in dctxmei-top dctxmei-bottom; do
     [ ! -z "$DISPLAY1" ] && MONITOR="$DISPLAY1" polybar "$display" &
     [ ! -z "$DISPLAY2" ] && MONITOR="$DISPLAY2" polybar "$display" &
+    [ ! -z "$DISPLAY3" ] && MONITOR="$DISPLAY3" polybar "$display" &
 done
 
 echo "Bars launched..."
