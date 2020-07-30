@@ -107,7 +107,7 @@ bindsym $mod+r mode "resize"
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 # 壁紙
-exec_always --no-startup-id betterlockscreen -u ~/Images/Background/71648498_p0.jpg && betterlockscreen -w
+exec_always --no-startup-id betterlockscreen -u ~/Images/Background/5039e3f7e0c3da763e3fddd7f37ca86ad35ab3cb.png && betterlockscreen -w
 
 # 關閉屏幕保護
 exec --no-startup-id xset s 0
