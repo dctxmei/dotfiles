@@ -203,7 +203,7 @@ client.background       #22222299
 assign [class="VirtualBox"] $WS4
 assign [class="mpv"] $WS5
 assign [class="Chromium"] $WS6
-assign [class="firefoxesr"] $WS7
+assign [class="firefox-esr"] $WS7
 assign [class="Thunderbird"] $WS8
 assign [class="TelegramDesktop"] $WS9
 assign [class="KeePassXC"] $WS10

@@ -1,1 +1,1 @@
-alias shred='shred -vuzn 9'
+alias shred="shred -vuzn 9"

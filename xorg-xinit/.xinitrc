@@ -47,7 +47,7 @@ LOCALE() {
     export LANG=zh_TW.UTF-8
 }
 QT5() {
-    # qt5ct and qt5-styleplugins
+    # qt5ct
     export QT_QPA_PLATFORMTHEME="qt5ct"
 }
 FCITX() {
