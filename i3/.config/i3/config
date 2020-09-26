@@ -85,20 +85,20 @@ bindsym $mod+Shift+r restart
 
 # 調整窗口大小（也可使用鼠標）
 mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-# Pressing left will shrink the window’s width.
-# Pressing down will grow the window’s height.
-# Pressing up will shrink the window’s height.
-# Pressing right will grow the window’s width.
-bindsym h resize shrink width 10 px or 10 ppt
-bindsym j resize grow height 10 px or 10 ppt
-bindsym k resize shrink height 10 px or 10 ppt
-bindsym l resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing down will grow the window’s height.
+    # Pressing up will shrink the window’s height.
+    # Pressing right will grow the window’s width.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
 
-# back to normal: Enter or Escape
-bindsym Return mode "default"
-bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
 
@@ -107,13 +107,13 @@ bindsym $mod+r mode "resize"
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 # 壁紙
-exec_always --no-startup-id betterlockscreen -u ~/Images/Background/5039e3f7e0c3da763e3fddd7f37ca86ad35ab3cb.png && betterlockscreen -w
+exec_always --no-startup-id betterlockscreen -u ~/Pictures/Background/5039e3f7e0c3da763e3fddd7f37ca86ad35ab3cb.png && betterlockscreen -w
 
 # 關閉屏幕保護
 exec --no-startup-id xset s 0
 exec --no-startup-id xset dpms 0 0 0
 # 調整色溫
-exec --no-startup-id redshift -l 31.23:121.47 -t 4100:2800
+exec --no-startup-id redshift -l 1.290270:103.851959 -t 4100:2800
 # 啟動音效
 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 44%
 #exec --no-startup-id play ~/Music/onj001.mp3
@@ -125,13 +125,13 @@ exec --no-startup-id picom -c
 exec --no-startup-id fcitx5
 
 # 手動隨機壁紙
-#bindsym $mod+Shift+b exec --no-startup-id feh -z --bg-fill ~/Images/Background
+#bindsym $mod+Shift+b exec --no-startup-id feh -z --bg-fill ~/Pictures/Background
 # 切換聲卡
-bindsym $mod+Shift+f exec --no-startup-id pacmd set-default-sink "$(pacmd list-sinks | grep '  index' | cut -d ' ' -f6)" && bash ~/bin/sink
+#bindsym $mod+Shift+f exec --no-startup-id pacmd set-default-sink "$(pacmd list-sinks | grep '  index' | cut -d ' ' -f6)" && bash ~/bin/sink
 # 低頻
-bindsym $mod+Shift+d exec --no-startup-id doas cpupower frequency-set -d 800MHz && doas cpupower frequency-set -u 800MHz
+#bindsym $mod+Shift+d exec --no-startup-id doas cpupower frequency-set -d 800MHz && doas cpupower frequency-set -u 800MHz
 # 高頻
-bindsym $mod+Shift+u exec --no-startup-id doas cpupower frequency-set -u 1900MHz && doas cpupower frequency-set -d 1900MHz
+#bindsym $mod+Shift+u exec --no-startup-id doas cpupower frequency-set -u 1900MHz && doas cpupower frequency-set -d 1900MHz
 # MPD
 bindsym $mod+Shift+p exec mpc play
 bindsym $mod+Shift+s exec mpc stop
@@ -143,13 +143,15 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-mute @DEFAULT_S
 # 增加音量
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ +2%
 # 減少亮度
-bindsym XF86MonBrightnessDown exec --no-startup-id doas bash -c 'echo "$(expr $(cat /sys/class/backlight/intel_backlight/brightness) - 104)" > /sys/class/backlight/intel_backlight/brightness'
+#bindsym XF86MonBrightnessDown exec --no-startup-id doas bash -c 'echo "$(expr $(cat /sys/class/backlight/intel_backlight/brightness) - 104)" > /sys/class/backlight/intel_backlight/brightness'
+bindsym XF86MonBrightnessDown exec --no-startup-id doas light -U 10
 # 增加亮度
-bindsym XF86MonBrightnessUp exec --no-startup-id doas bash -c 'echo "$(expr $(cat /sys/class/backlight/intel_backlight/brightness) + 104)" > /sys/class/backlight/intel_backlight/brightness'
+#bindsym XF86MonBrightnessUp exec --no-startup-id doas bash -c 'echo "$(expr $(cat /sys/class/backlight/intel_backlight/brightness) + 104)" > /sys/class/backlight/intel_backlight/brightness'
+bindsym XF86MonBrightnessUp exec --no-startup-id doas light -A 10
 # 抓取屏幕
-bindsym Print exec --no-startup-id flameshot full -p ~/Images/ -d 5000
+bindsym Print exec --no-startup-id flameshot full -p ~/Pictures/ -d 5000
 # 抓取窗口
-bindsym Shift+Print exec --no-startup-id flameshot gui -p ~/Images -d 5000
+bindsym Shift+Print exec --no-startup-id flameshot gui -p ~/Pictures -d 5000
 
 # 程序啟動器
 bindsym $mod+d exec rofi -show
@@ -157,18 +159,18 @@ bindsym $mod+d exec rofi -show
 # 提示
 set $mode_system System (e) , (l) , (s) , (h) , (r) , (Shift+s) 
 mode "$mode_system" {
-bindsym e exec --no-startup-id i3-msg exit, mode "default"
-bindsym l exec --no-startup-id betterlockscreen -l dimblur -t "「自由，愛，希望」", mode "default"
-bindsym s exec --no-startup-id systemctl suspend && betterlockscreen -l dimblur -t "「自由，愛，希望」", mode "default"
-bindsym h exec --no-startup-id systemctl hibernate && betterlockscreen -l dimblur -t "「自由，愛，希望」", mode "default"
-bindsym r exec --no-startup-id systemctl reboot, mode "default"
-bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"  
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym l exec --no-startup-id betterlockscreen -l dimblur -t "Simple is beautiful.", mode "default"
+    bindsym s exec --no-startup-id systemctl suspend && betterlockscreen -l dimblur -t "Simple is beautiful.", mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate && betterlockscreen -l dimblur -t "Simple is beautiful.", mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"  
 
-# back to normal: Enter or Escape
-bindsym Return mode "default"
-bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
-bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+Shift+e mode "$mode_system"
 
 # 主題
 set $WS1 1:1
@@ -184,6 +186,8 @@ set $WS10 10:0
 
 # 窗口無狀態欄微邊框
 for_window [class="^.*"] border pixel 1
+# 分割切換
+for_window [class="^.*"] split toggle
 
 # 字體
 font pango:monospace 12

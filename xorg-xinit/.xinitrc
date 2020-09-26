@@ -55,6 +55,10 @@ FCITX() {
     export QT_IM_MODULE=fcitx
     export XMODIFIERS=@im=fcitx
 }
+DPI() {
+    xrandr --dpi 144
+    export QT_AUTO_SCREEN_SCALE_FACTOR=0
+}
 I3() {
     #~/bin/display
     exec i3
@@ -64,4 +68,5 @@ I3() {
 LOCALE
 QT5
 FCITX
+DPI
 I3

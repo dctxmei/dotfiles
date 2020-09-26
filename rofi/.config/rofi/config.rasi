@@ -1,0 +1,10 @@
+configuration {
+	modi: "drun,combi";
+	width: 50;
+	lines: 9;
+	columns: 2;
+	show-icons: true;
+	sidebar-mode: true;
+	m: "-1";
+	theme: "lb";
+}
