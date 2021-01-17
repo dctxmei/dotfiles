@@ -4,7 +4,7 @@ set $mod Mod4
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# 啟動終端
+# 啓動終端
 bindsym $mod+Return exec --no-startup-id termite
 
 # 關閉焦點窗口
@@ -48,7 +48,7 @@ bindsym $mod+a focus parent
 # 焦點切換到子窗口
 bindsym $mod+q focus child
 
-# 轉換為暫存窗口
+# 轉換爲暫存窗口
 bindsym $mod+Shift+minus move scratchpad
 
 # 呼出／隱藏暫存窗口
@@ -80,7 +80,7 @@ bindsym $mod+Shift+0 move container to workspace $WS10
 
 # 重新加載配置文件
 bindsym $mod+Shift+c reload
-# 重啟 i3 到合適的位置（保留你的佈局／會話，可以用來升級 i3）
+# 重啓 i3 到合適的位置（保留你的佈局／會話，可以用來升級 i3）
 bindsym $mod+Shift+r restart
 
 # 調整窗口大小（也可使用鼠標）
@@ -114,7 +114,7 @@ exec --no-startup-id xset s 0
 exec --no-startup-id xset dpms 0 0 0
 # 調整色溫
 exec --no-startup-id redshift -l 1.290270:103.851959 -t 4100:2800
-# 啟動音效
+# 啓動音效
 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 44%
 #exec --no-startup-id play ~/Music/onj001.mp3
 # Conky
@@ -149,11 +149,11 @@ bindsym XF86MonBrightnessDown exec --no-startup-id doas light -U 10
 #bindsym XF86MonBrightnessUp exec --no-startup-id doas bash -c 'echo "$(expr $(cat /sys/class/backlight/intel_backlight/brightness) + 104)" > /sys/class/backlight/intel_backlight/brightness'
 bindsym XF86MonBrightnessUp exec --no-startup-id doas light -A 10
 # 抓取屏幕
-bindsym Print exec --no-startup-id flameshot full -p ~/Pictures/ -d 5000
+bindsym Print exec --no-startup-id flameshot full -c -p ~/Pictures/ -d 5000
 # 抓取窗口
-bindsym Shift+Print exec --no-startup-id flameshot gui -p ~/Pictures -d 5000
+bindsym Shift+Print exec --no-startup-id flameshot gui -p ~/Pictures/ -d 5000
 
-# 程序啟動器
+# 程序啓動器
 bindsym $mod+d exec rofi -show
 
 # 提示
@@ -204,6 +204,7 @@ client.urgent           #99999999 #99999999 #FFFFFF99 #99999999
 client.placeholder      #55555599 #55555599 #FFFFFF99 #55555599
 client.background       #22222299
 
+assign [class="Virt-manager"] $WS3
 assign [class="VirtualBox"] $WS4
 assign [class="mpv"] $WS5
 assign [class="Chromium"] $WS6

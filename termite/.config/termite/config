@@ -50,33 +50,36 @@ cursor_blink = off
 #cursor_foreground = #dcdccc
 
 #foreground = #dcdccc
+foreground = #ffffff
 #foreground_bold = #ffffff
 #background = #3f3f3f
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
-background = rgba(00, 00, 00, 0.9)
+background = rgba(39, 42, 52, 0.9)
 
 # If unset, will reverse foreground and background
-highlight = #2f2f2f
+#highlight = #2f2f2f
 
 # Colors from color0 to color254 can be set
-color0 = #3f3f3f
-color1 = #705050
-color2 = #60b48a
-color3 = #dfaf8f
-color4 = #506070
-color5 = #dc8cc3
-color6 = #8cd0d3
-color7 = #dcdccc
-color8 = #709080
-color9 = #dca3a3
-color10 = #c3bf9f
-color11 = #f0dfaf
-color12 = #94bff3
-color13 = #ec93d3
-color14 = #93e0e3
+color0 = #1f2229
+color1 = #d41919
+color2 = #5ebdab
+color3 = #fea44c
+color4 = #367bf0
+color5 = #bf2e5d
+color6 = #49aee6
+color7 = #e6e6e6
+color8 = #8c42ab
+color9 = #ec0101
+color10 = #47d4b9
+color11 = #ff8a18
+color12 = #277fff
+color13 = #d71655
+color14 = #05a1f7
 color15 = #ffffff
+# See:
+# https://github.com/Mayccoll/Gogh/blob/master/themes/flat-remix.sh
 
 [hints]
 #font = Monospace 12

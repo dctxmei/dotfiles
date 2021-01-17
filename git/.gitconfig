@@ -5,4 +5,4 @@
 [commit]
 	gpgsign = true
 [http]
-	proxy = socks://127.0.0.1:1080
+	proxy = socks5://127.0.0.1:9050

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for id in $(blkid | grep xfs | awk -F : '{print $1}'); do
+    xfs_db -c frag -r $id
+    xfs_fsr $id
+done
